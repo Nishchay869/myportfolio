@@ -204,6 +204,10 @@ body {
   align-items: center;
 }
 
+.about-text {
+  text-align: center;
+}
+
 .about-text p {
   font-size: 1.2rem;
   line-height: 1.8;
@@ -216,6 +220,75 @@ body {
   margin: 10px auto;
   grid-column: span 2;
   /* padding: 15px; */
+}
+
+/* Large screens (1200px and up) */
+@media (min-width: 1200px) {
+  .about-grid {
+    gap: 60px;
+  }
+
+  .about-text p {
+    font-size: 1.3rem;
+  }
+
+  .profile-image {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+/* Medium screens (868px to 1199px) */
+@media (min-width: 868px) and (max-width: 1199px) {
+  .about-grid {
+    gap: 40px;
+    padding: 0 20px;
+  }
+
+  .about-text p {
+    font-size: 1.1rem;
+  }
+}
+
+/* Tablet screens (1024px) */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .about-grid {
+    gap: 45px;
+    padding: 0 30px;
+  }
+
+  .about-text p {
+    font-size: 1.15rem;
+    text-align: center;
+  }
+
+  .profile-image {
+    width: 230px;
+    height: 230px;
+  }
+}
+
+/* Small screens (768px to 867px) */
+@media (min-width: 768px) and (max-width: 867px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .profile-photo {
+    grid-column: span 1;
+  }
+
+  .about-text p {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .profile-image {
+    width: 200px;
+    height: 200px;
+  }
 }
 
 .profile-image {
@@ -236,6 +309,7 @@ body {
 .skills {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 15px;
 }
 
@@ -437,6 +511,12 @@ body {
   transition: width 0.1s ease;
 }
 
+@media (min-width: 868px) {
+  .about-text p {
+    text-align: center;
+  }
+}
+
 @media (max-width: 768px) {
   .navbar {
     padding: 15px 20px;
@@ -499,4 +579,18 @@ body {
   border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
+}
+@media (max-width: 1024px){
+    .about-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+}
+@media (max-width: 2560px){
+    .about-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
 }
