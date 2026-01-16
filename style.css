@@ -186,13 +186,13 @@ body {
 .section-content {
   max-width: 1200px;
   width: 100%;
-  margin-left: 37%;
+  /* margin-left: 37%; */
 }
 
 .section-content h2 {
   font-size: 3rem;
   margin-bottom: 50px;
-  margin-right: 53%;
+  /* margin-right: 53%; */
   text-align: center;
   color: #00ff88;
 }
@@ -463,6 +463,7 @@ body {
 
   .section-content h2 {
     font-size: 2rem;
+    margin-bottom: 30px;
   }
 
   .hero-content p {
