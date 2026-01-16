@@ -411,6 +411,11 @@ body {
   color: #ffffff;
 }
 
+.social-link[data-platform="mail"]:hover {
+  background: #ea4335;
+  color: #ffffff;
+}
+
 .scroll-indicator {
   position: fixed;
   top: 0;
