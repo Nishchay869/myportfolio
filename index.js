@@ -14,7 +14,7 @@ class Portfolio3D {
     }
 
     init() {
-        // Scene setup
+       
         this.scene = new THREE.Scene();
         this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         this.renderer = new THREE.WebGLRenderer({ 
@@ -26,16 +26,16 @@ class Portfolio3D {
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         
-        // Camera position
+        
         this.camera.position.z = 5;
         
-        // Create particle system
+       
         this.createParticles();
         
-        // Create floating geometries
+       
         this.createFloatingGeometries();
         
-        // Lighting
+        
         const ambientLight = new THREE.AmbientLight(0x404040, 0.4);
         this.scene.add(ambientLight);
         
@@ -43,7 +43,7 @@ class Portfolio3D {
         pointLight.position.set(10, 10, 10);
         this.scene.add(pointLight);
         
-        // Hide loading screen
+       
         setTimeout(() => {
             document.getElementById('loading-screen').style.opacity = '0';
             setTimeout(() => {
@@ -86,7 +86,7 @@ class Portfolio3D {
     createFloatingGeometries() {
         this.geometries = [];
         
-        // Torus
+       
         const torusGeometry = new THREE.TorusGeometry(0.5, 0.2, 16, 100);
         const torusMaterial = new THREE.MeshPhongMaterial({ 
             color: 0x00ff88,
@@ -99,7 +99,7 @@ class Portfolio3D {
         this.scene.add(torus);
         this.geometries.push(torus);
         
-        // Icosahedron
+       
         const icoGeometry = new THREE.IcosahedronGeometry(0.8, 0);
         const icoMaterial = new THREE.MeshPhongMaterial({ 
             color: 0x0088ff,
@@ -112,7 +112,7 @@ class Portfolio3D {
         this.scene.add(icosahedron);
         this.geometries.push(icosahedron);
         
-        // Octahedron
+       
         const octaGeometry = new THREE.OctahedronGeometry(0.6, 0);
         const octaMaterial = new THREE.MeshPhongMaterial({ 
             color: 0xff0088,
@@ -127,13 +127,13 @@ class Portfolio3D {
     }
 
     setupEventListeners() {
-        // Mouse movement
+       
         document.addEventListener('mousemove', (event) => {
             this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
             this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
         });
 
-        // Scroll handling
+      
         window.addEventListener('scroll', () => {
             const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
             document.querySelector('.scroll-progress').style.width = `${scrollPercent * 100}%`;
@@ -142,7 +142,7 @@ class Portfolio3D {
             this.updateSectionVisibility();
         });
 
-        // Navigation
+      
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -151,7 +151,7 @@ class Portfolio3D {
             });
         });
 
-        // Project cards
+       
         document.querySelectorAll('.project-card').forEach(card => {
             card.addEventListener('click', () => {
                 const projectId = card.dataset.project;
@@ -159,14 +159,14 @@ class Portfolio3D {
             });
         });
 
-        // Window resize
+     
         window.addEventListener('resize', () => {
             this.camera.aspect = window.innerWidth / window.innerHeight;
             this.camera.updateProjectionMatrix();
             this.renderer.setSize(window.innerWidth, window.innerHeight);
         });
 
-        // Custom cursor
+      
         this.setupCustomCursor();
     }
 
@@ -244,44 +244,44 @@ class Portfolio3D {
         
         const time = Date.now() * 0.001;
         
-        // Rotate particles
+       
         if (this.particles) {
             this.particles.rotation.x = time * 0.1;
             this.particles.rotation.y = time * 0.05;
         }
         
-        // Animate floating geometries
+       
         this.geometries.forEach((geometry, index) => {
             geometry.rotation.x = time * (0.5 + index * 0.1);
             geometry.rotation.y = time * (0.3 + index * 0.05);
             geometry.position.y += Math.sin(time + index) * 0.001;
         });
         
-        // Mouse interaction
+       
         this.camera.position.x += (this.mouse.x * 0.5 - this.camera.position.x) * 0.05;
         this.camera.position.y += (this.mouse.y * 0.5 - this.camera.position.y) * 0.05;
         
-        // Render
+      
         this.renderer.render(this.scene, this.camera);
     }
 }
 
-// Initialize when DOM is loaded
+
 document.addEventListener('DOMContentLoaded', () => {
     new Portfolio3D();
     
-    // Additional interactions
+    
     const ctaButton = document.querySelector('.cta-button');
     ctaButton.addEventListener('click', () => {
         document.querySelector('#projects').scrollIntoView({ behavior: 'smooth' });
     });
     
-    // Form submission
+   
     const submitButton = document.querySelector('.submit-button');
     submitButton.addEventListener('click', (e) => {
         e.preventDefault();
         
-        // Simple form validation and animation
+       
         const inputs = document.querySelectorAll('.form-input, .form-textarea');
         let isValid = true;
         
